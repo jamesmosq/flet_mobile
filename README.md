@@ -41,7 +41,7 @@ La idea es no empezar de cero en cada etapa: es **el mismo sistema**, que va cre
 2. Le agregas una **API** para que otras aplicaciones puedan usar esos datos.
 3. Construyes la **app móvil** que la consume (módulo 12) y le agregas usuarios con inicio de sesión (módulo 13).
 
-> 🎯 **Proyecto final:** elige tu propio tema (biblioteca, gimnasio, citas médicas, inventario...) y construye las tres capas: **web en Laravel + API + app móvil en Flet**.
+> **Proyecto final:** elige tu propio tema (biblioteca, gimnasio, citas médicas, inventario...) y construye las tres capas: **web en Laravel + API + app móvil en Flet**.
 
 ---
 

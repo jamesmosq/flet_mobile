@@ -120,7 +120,7 @@ ValueError: could not convert string to float: 'abc'   ← QUÉ pasó
 - **Recarga automática:** `flet run mi_app.py` reinicia la app cada vez que guardas el archivo. No tienes que cerrarla y abrirla.
 - **Pruébala como celular en el navegador:** `flet run --web mi_app.py`, y en Chrome abre las herramientas (F12) → ícono de celular. Así ves cómo se ve en pantalla pequeña.
 - **`print()` es tu amigo:** imprime valores para ver qué está pasando. Aparecen en la terminal donde corriste la app.
-- **El depurador de PyCharm:** haz clic al lado del número de línea (punto rojo) y corre con el ícono del insecto 🐞. La app se detiene ahí y puedes ver el valor de cada variable.
+- **El depurador de PyCharm:** haz clic al lado del número de línea (punto rojo) y corre con el botón **Debug** (el ícono del insecto). La app se detiene ahí y puedes ver el valor de cada variable.
 - **Primero en escritorio:** desarrolla y prueba en la PC. Compila el APK solo cuando todo funcione: compilar tarda minutos.
 
 ---

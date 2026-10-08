@@ -16,7 +16,7 @@ Corre la app (`python app_usuarios.py`) y mira el **Monitor de API**. A medida q
 POST /api/registro   404 Not Found         ← todavía no existe la ruta
 POST /api/registro   500 Server Error      ← la ruta existe, pero el controlador falla
 POST /api/registro   422 Unprocessable     ← ¡ya valida! (prueba un email repetido)
-POST /api/registro   201 Created           ← ✅ endpoint terminado
+POST /api/registro   201 Created           ← endpoint terminado
 ```
 
 La app también te da **pistas** en los mensajes de error, por ejemplo:
@@ -47,7 +47,7 @@ Please add the [Laravel\Sanctum\HasApiTokens] trait to your User model.
 
 ---
 
-## NIVEL 1: Autenticación ⭐
+## NIVEL 1: Autenticación
 
 Crea el controlador:
 
@@ -74,7 +74,7 @@ php artisan make:controller Api/PerfilController
 }
 ```
 
-> 💡 **Pistas**
+> **Pistas**
 > - La regla `confirmed` busca automáticamente un campo llamado `password_confirmation`.
 > - Para crear el token: `$user->createToken('app-movil')->plainTextToken`.
 > - ¿Hay que hacer `Hash::make()`? Mira el método `casts()` del modelo `User`: ya tiene `'password' => 'hashed'`.
@@ -89,7 +89,7 @@ php artisan make:controller Api/PerfilController
 | **Éxito** | `200` → `{"user": {...}, "token": "..."}` (mismo formato que el registro) |
 | **Errores** | `401` → `{"message": "Email o contraseña incorrectos."}` · `422` si falta algún campo |
 
-> 💡 **Pistas**
+> **Pistas**
 > - Busca el usuario por email y compara la clave con `Hash::check($claveEscrita, $user->password)`.
 > - Responde **el mismo mensaje** si el email no existe o si la clave está mal. ¿Por qué crees que es más seguro así?
 
@@ -101,7 +101,7 @@ php artisan make:controller Api/PerfilController
 | **Éxito** | `200` → los datos del usuario dueño del token |
 | **Errores** | `401` sin token o con token inválido |
 
-> 💡 **Pistas**
+> **Pistas**
 > - Agrupa las rutas protegidas: `Route::middleware('auth:sanctum')->group(function () { ... });`
 > - Dentro de una ruta protegida, `$request->user()` es el usuario que envió el token. No necesitas buscarlo.
 > - ¿Aparece el campo `password` en la respuesta? No debería. ¿Qué lo oculta? (Mira `#[Hidden]` en el modelo).
@@ -114,14 +114,14 @@ php artisan make:controller Api/PerfilController
 | **Es** | Protegida |
 | **Éxito** | `204` sin contenido. **El token usado deja de funcionar.** |
 
-> 💡 **Pistas**
+> **Pistas**
 > - `$request->user()->currentAccessToken()->delete();`
 > - Para responder 204: `return response()->noContent();`
 > - **Compruébalo:** después del logout, usa el mismo token en Insomnia para `GET /api/perfil`. Debe dar `401`.
 
 ---
 
-## NIVEL 2: Mi perfil ⭐⭐
+## NIVEL 2: Mi perfil
 
 ### 2.1 `PUT /api/perfil`
 
@@ -133,7 +133,7 @@ php artisan make:controller Api/PerfilController
 | **Éxito** | `200` → el usuario actualizado |
 | **Errores** | `422` si el email ya lo usa **otra** persona |
 
-> 💡 **Pista:** si usas `unique:users` tal cual, el usuario no podrá guardar sin cambiar su email (¡el suyo ya existe!). Busca `Rule::unique('users')->ignore(...)` en la documentación de Laravel.
+> **Pista:** si usas `unique:users` tal cual, el usuario no podrá guardar sin cambiar su email (¡el suyo ya existe!). Busca `Rule::unique('users')->ignore(...)` en la documentación de Laravel.
 
 ### 2.2 `PUT /api/perfil/password`
 
@@ -144,7 +144,7 @@ php artisan make:controller Api/PerfilController
 | **Éxito** | `204` sin contenido |
 | **Errores** | `422` con el error en **`password_actual`** si la clave actual no es correcta |
 
-> 💡 **Pistas**
+> **Pistas**
 > - Para lanzar un 422 "a mano" en un campo específico:
 >   ```php
 >   throw ValidationException::withMessages(['password_actual' => 'La contraseña actual no es correcta.']);
@@ -153,13 +153,13 @@ php artisan make:controller Api/PerfilController
 
 ---
 
-## NIVEL 3: Proteger y vender ⭐⭐⭐
+## NIVEL 3: Proteger y vender
 
 ### 3.1 Proteger los productos
 
 Mueve el `Route::apiResource('productos', ...)` del módulo 12 **dentro** del grupo `auth:sanctum`.
 
-**Compruébalo:** en Insomnia, `GET /api/productos` sin token → `401`. En la app, con sesión iniciada → `200` (verás el 🔒 en el Monitor).
+**Compruébalo:** en Insomnia, `GET /api/productos` sin token → `401`. En la app, con sesión iniciada → `200` (verás el ícono de candado en el Monitor).
 
 ### 3.2 `POST /api/productos/{producto}/vender`
 
@@ -171,7 +171,7 @@ Mueve el `Route::apiResource('productos', ...)` del módulo 12 **dentro** del gr
 | **Éxito** | `200` → el producto con el stock **ya descontado** |
 | **Errores** | `422` en `cantidad` → `"Solo hay N unidades disponibles."` · `404` si el producto no existe |
 
-> 💡 **Pistas**
+> **Pistas**
 > - Este endpoint **no es un CRUD**: es una *acción*. Por eso no sale de `apiResource` y lo registras tú: `Route::post('/productos/{producto}/vender', ...)`.
 > - Con `Producto $producto` en el método, Laravel busca el producto solo (y responde 404 si no existe).
 > - `$producto->decrement('stock', $cantidad)` resta y guarda en un solo paso.

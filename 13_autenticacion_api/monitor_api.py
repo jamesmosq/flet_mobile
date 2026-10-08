@@ -15,7 +15,7 @@ from api_cliente import Registro
 #   monitor = MonitorApi()
 #   api.observadores.append(monitor.agregar)    # cada petición llama a monitor.agregar()
 #
-# El candado 🔒 indica que la petición llevaba el token (header Authorization).
+# El ícono de candado indica que la petición llevaba el token (header Authorization).
 #
 # Es solo una herramienta para aprender y depurar: en una app real se quita.
 

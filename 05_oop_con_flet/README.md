@@ -94,4 +94,4 @@ def al_hacer_clic(self, e):
 
 ## Reto
 
-En `tarjeta_producto.py`, agrega un botón "Agregar al carrito" dentro del componente. Al hacer clic, el botón debe cambiar a "En el carrito ✓" y cambiar de color.
+En `tarjeta_producto.py`, agrega un botón "Agregar al carrito" dentro del componente. Al hacer clic, el botón debe cambiar a "En el carrito" y cambiar de color.

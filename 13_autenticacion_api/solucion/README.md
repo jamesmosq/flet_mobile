@@ -1,6 +1,6 @@
 # Solución del reto (Laravel 13)
 
-> ⚠️ **¿Ya lo intentaste?** Aprendes mucho más peleando 20 minutos con un error que copiando la solución en 2. Úsala para **comparar** tu código cuando ya funcione, o para destrabarte en un punto concreto.
+> **¿Ya lo intentaste?** Aprendes mucho más peleando 20 minutos con un error que copiando la solución en 2. Úsala para **comparar** tu código cuando ya funcione, o para destrabarte en un punto concreto.
 
 Esta solución fue probada en **Laravel 13.35** con Sanctum, contra la app `app_usuarios.py`.
 

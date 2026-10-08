@@ -6,7 +6,7 @@ En el módulo 12 **consumiste** una API que ya existía. Ahora vas a **construir
 
 Y aparece algo que toda app real tiene: **usuarios**. Registrarse, iniciar sesión, ver mi perfil y que solo los usuarios con sesión iniciada puedan vender productos.
 
-> 📋 **El enunciado completo, con el contrato de la API y pistas, está en [`RETO.md`](RETO.md).** Este README explica los conceptos que necesitas antes de empezar.
+> **El enunciado completo, con el contrato de la API y pistas, está en [`RETO.md`](RETO.md).** Este README explica los conceptos que necesitas antes de empezar.
 
 ---
 
@@ -85,7 +85,7 @@ Un **middleware** es un "guardia" que revisa la petición **antes** de que llegu
 | [`RETO.md`](RETO.md) | **Empieza aquí.** El contrato de la API, los 3 niveles, pistas y checklist |
 | `app_usuarios.py` | La app terminada: Login, Registro, Productos (vender) y Mi perfil |
 | `api_cliente.py` | Cliente de la API: guarda el token y lo envía en cada petición |
-| `monitor_api.py` | Monitor de API (el del módulo 12, con 🔒 cuando la petición lleva token) |
+| `monitor_api.py` | Monitor de API (el del módulo 12, con un ícono de candado cuando la petición lleva token) |
 | [`solucion/`](solucion/) | La solución en Laravel 13. **Úsala para comparar, no para copiar** |
 
 ---
