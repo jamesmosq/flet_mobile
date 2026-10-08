@@ -27,6 +27,7 @@ Sigue las carpetas en orden. Cada una tiene su propio README con explicaciones y
 | `09_datos_externos` | Datos reales | Conectar con bases de datos |
 | `10_app_movil_final` | App final | Empaquetar para Android/iOS |
 | `12_consumo_api` | APIs REST | Conectar la app con una API Laravel (CRUD) |
+| `13_autenticacion_api` | Autenticación | Construir tu propia API: registro, login y tokens con Laravel Sanctum |
 
 ---
 
@@ -63,5 +64,6 @@ Se abrirá una ventana de escritorio. Cuando llegues a la carpeta `10`, aprender
 - Lee el README de cada carpeta antes de abrir el código.
 - Intenta modificar los ejercicios — cambiar colores, textos, agregar botones.
 - Si algo no funciona, revisa que el entorno virtual esté activo.
+- Lee [`CONSEJOS.md`](CONSEJOS.md): errores comunes, tutoriales desactualizados, cómo leer un error y cómo pedir ayuda.
 
 ¡Comencemos!
