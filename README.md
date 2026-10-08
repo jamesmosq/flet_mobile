@@ -26,6 +26,7 @@ Sigue las carpetas en orden. Cada una tiene su propio README con explicaciones y
 | `08_temas_estilos` | Temas y estilos | Darle diseño a tu app |
 | `09_datos_externos` | Datos reales | Conectar con bases de datos |
 | `10_app_movil_final` | App final | Empaquetar para Android/iOS |
+| `12_consumo_api` | APIs REST | Conectar la app con una API Laravel (CRUD) |
 
 ---
 
