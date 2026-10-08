@@ -84,7 +84,7 @@ r = httpx.post("http://127.0.0.1:8000/api/productos",
 print(r.status_code)   # 201
 ```
 
-> **Importante:** siempre envía el header `Accept: application/json`. Así Laravel responde los errores en JSON. Sin él, un error de validación devuelve una **redirección HTML** y tu app no sabrá qué pasó.
+> **Importante:** siempre envía el header `Accept: application/json`, que significa "quiero la respuesta en JSON". En Laravel 13 las rutas `api/*` ya responden los errores de validación en JSON aunque falte el header, pero **en las rutas protegidas con login** (módulo 13) no es así: sin él, Laravel intenta redirigir a una pantalla de login que no existe y responde un **error 500** en vez de un `401`. Además, en versiones anteriores de Laravel, sin el header un error de validación devolvía una redirección HTML.
 
 ---
 
@@ -189,5 +189,5 @@ python 02_crud_productos.py       # terminal 2
 
 1. **Buscar:** agrega un `TextField` de búsqueda que llame a `GET /api/productos?buscar=lap`. En Laravel, filtra con `where('nombre', 'like', "%$buscar%")`.
 2. **Detalle:** al tocar un producto, abre una pantalla nueva que use `repo.obtener(id)` (`GET /api/productos/{id}`).
-3. **Nuevo campo:** agrega `categoria` a la migración, al modelo (`$fillable`), a las reglas de validación y al formulario de Flet. Así practicas el recorrido completo: **BD → API → App**.
+3. **Nuevo campo:** agrega `categoria` a la migración, al modelo (`#[Fillable]`), a las reglas de validación y al formulario de Flet. Así practicas el recorrido completo: **BD → API → App**.
 4. **Avanzado:** protege la API con **Laravel Sanctum**. Haz una pantalla de login que guarde el token y envíalo en cada petición con el header `Authorization: Bearer <token>`.

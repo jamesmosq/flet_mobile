@@ -134,8 +134,9 @@ Respuesta de un error de validación (esto es lo que la app Flet muestra debajo 
 
 ## Detalles que hacen la diferencia
 
-- **`Accept: application/json`:** sin este header, cuando la validación falla Laravel responde con una *redirección* (pensada para formularios web). La app Flet siempre lo envía.
-- **`$casts` en el modelo:** una columna `decimal` llega como texto (`"3500000.00"`). Con `'precio' => 'float'` llega como número (`3500000.0`).
+- **`Accept: application/json`:** le dice a Laravel "respóndeme en JSON". En Laravel 13 las rutas `api/*` ya devuelven en JSON los errores de validación aunque falte el header, pero en rutas protegidas con `auth:sanctum` (módulo 13) una petición sin token y sin este header termina en `500 Route [login] not defined` en lugar de `401`. La app Flet siempre lo envía.
+- **`casts()` en el modelo:** una columna `decimal` llega como texto (`"3500000.00"`). Con `'precio' => 'float'` llega como número (`3500000.0`).
+- **Atributos `#[...]` en el modelo:** Laravel 13 configura los modelos con atributos de PHP (`#[Fillable]`, `#[Hidden]`, `#[Table]`). En tutoriales de versiones anteriores verás lo mismo escrito como propiedades (`protected $fillable = [...]`). Las dos formas funcionan.
 - **Route Model Binding:** en `show(Producto $producto)` Laravel busca el producto por id automáticamente. Si no existe, responde `404` sin que escribas ningún `if`.
 - **Códigos de estado:** `store` devuelve `201` y `destroy` devuelve `204`. La app los usa para saber qué pasó.
 - **CORS:** solo importa si corres la app con `flet run --web` (navegador). Una app de escritorio o un APK no tienen restricciones de CORS.

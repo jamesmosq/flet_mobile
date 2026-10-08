@@ -100,7 +100,7 @@ Haz cada paso y **anota lo que ves en las 3 ventanas**.
 | 9 | **Apaga Laravel** (Ctrl+C) y toca Recargar | `GET` → `--- Sin conexión` (en rojo) | "No se pudo conectar con el servidor" + botón Reintentar |
 | 10 | Vuelve a encender Laravel y toca **Reintentar** | `GET` → `200 OK` | La lista vuelve |
 
-> **Compara el 7 con Insomnia:** envía el mismo body vacío desde Insomnia, **sin** el header `Accept: application/json`. ¿Qué responde Laravel? ¿Por qué la app siempre envía ese header?
+> **Compara el 7 con Insomnia:** envía el mismo body vacío desde Insomnia, **sin** el header `Accept: application/json`. En Laravel 13 la respuesta es igual: un `422` en JSON. Entonces, ¿para qué lo envía la app? Lo descubrirás en el módulo 13, cuando una ruta protegida sin token y sin ese header responda `500` en vez de `401`.
 
 ---
 

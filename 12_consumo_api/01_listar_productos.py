@@ -29,7 +29,7 @@ def main(page: ft.Page):
         page.update()
 
         try:
-            # 1. Enviar la petición (Accept: JSON → Laravel siempre responde JSON)
+            # 1. Enviar la petición (Accept: JSON → "respóndeme en JSON")
             respuesta = httpx.get(URL, headers={"Accept": "application/json"}, timeout=10)
 
             # 2. Revisar el código de estado (200 = todo bien)

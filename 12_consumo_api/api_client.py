@@ -80,7 +80,7 @@ class ApiProductos:
             timeout=10,  # segundos: si el servidor no responde, no esperamos para siempre
             headers={
                 # Le dice a Laravel "respóndeme en JSON", incluso cuando hay errores.
-                # Sin esto, un error de validación devolvería una redirección HTML.
+                # En rutas protegidas (módulo 13), sin esto Laravel responde 500 en vez de 401.
                 "Accept": "application/json",
             },
         )
