@@ -119,7 +119,7 @@ def main(page: ft.Page):
     # ─── Formulario (page.open / page.close — Flet 0.85) ─────────
     def abrir_formulario(producto=None):
         campo_nombre = ft.TextField(
-            label="Nombre del producto", expand=True,
+            label="Nombre del producto",
             value=producto["nombre"] if producto else ""
         )
         campo_precio = ft.TextField(
@@ -135,15 +135,15 @@ def main(page: ft.Page):
         def guardar(e):
             valido = True
             if not campo_nombre.value.strip():
-                campo_nombre.error_text = "Obligatorio"
+                campo_nombre.error = "Obligatorio"
                 valido = False
             else:
-                campo_nombre.error_text = None
+                campo_nombre.error = None
             try:
                 precio = float(campo_precio.value)
-                campo_precio.error_text = None
+                campo_precio.error = None
             except (ValueError, TypeError):
-                campo_precio.error_text = "Debe ser un numero"
+                campo_precio.error = "Debe ser un numero"
                 valido = False
 
             if not valido:

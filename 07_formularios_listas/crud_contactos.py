@@ -145,16 +145,16 @@ def main(page: ft.Page):
             # Validar campos obligatorios
             valido = True
             if not campo_nombre.value.strip():
-                campo_nombre.error_text = "Obligatorio"
+                campo_nombre.error = "Obligatorio"
                 valido = False
             else:
-                campo_nombre.error_text = None
+                campo_nombre.error = None
 
             if not campo_email.value.strip():
-                campo_email.error_text = "Obligatorio"
+                campo_email.error = "Obligatorio"
                 valido = False
             else:
-                campo_email.error_text = None
+                campo_email.error = None
 
             if not valido:
                 page.update()

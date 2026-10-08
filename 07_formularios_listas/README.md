@@ -78,13 +78,15 @@ campo = ft.TextField(label="Nombre")
 
 def guardar(e):
     if not campo.value.strip():
-        campo.error_text = "El nombre es obligatorio"
+        campo.error = "El nombre es obligatorio"
         page.update()
         return
-    campo.error_text = None  # Quita el error si estaba
+    campo.error = None  # Quita el error si estaba
     # ... guardar el dato
     page.update()
 ```
+
+> **Ojo con los tutoriales viejos:** en versiones anteriores de Flet esta propiedad se llamaba `error_text`. Si la usas ahora, Python **no da error**, pero el mensaje nunca aparece en pantalla.
 
 ---
 

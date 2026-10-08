@@ -236,7 +236,7 @@ def main(page: ft.Page):
     )
 
     # ─── FORMULARIO: Agregar gasto ────────────────────────────────
-    campo_desc = ft.TextField(label="Descripcion del gasto", expand=True)
+    campo_desc = ft.TextField(label="Descripcion del gasto")
     campo_monto = ft.TextField(label="Monto ($)", keyboard_type=ft.KeyboardType.NUMBER, width=150)
     dropdown_cat = ft.Dropdown(
         label="Categoria",
@@ -248,21 +248,21 @@ def main(page: ft.Page):
     def abrir_formulario(e):
         campo_desc.value = ""
         campo_monto.value = ""
-        campo_desc.error_text = None
-        campo_monto.error_text = None
+        campo_desc.error = None
+        campo_monto.error = None
 
         def guardar(e):
             valido = True
             if not campo_desc.value.strip():
-                campo_desc.error_text = "Obligatorio"
+                campo_desc.error = "Obligatorio"
                 valido = False
             else:
-                campo_desc.error_text = None
+                campo_desc.error = None
             try:
                 monto = float(campo_monto.value)
-                campo_monto.error_text = None
+                campo_monto.error = None
             except (ValueError, TypeError):
-                campo_monto.error_text = "Numero invalido"
+                campo_monto.error = "Numero invalido"
                 valido = False
 
             if not valido:
