@@ -10,6 +10,41 @@ Flet es una librería de Python que usa **Flutter** por debajo (la tecnología c
 
 ---
 
+## Ruta del curso
+
+El curso completo tiene **tres etapas**. Este repositorio cubre la tercera, la app móvil, y en los módulos 12 y 13 la conecta con lo que construiste en las dos primeras.
+
+```
+  ETAPA 1                    ETAPA 2                    ETAPA 3
+  Laravel (web)        ──►   API REST con Laravel ──►   App móvil con Flet
+  ─────────────              ────────────────────       ──────────────────
+  Rutas, controladores,      Endpoints que responden    Interfaz, navegación,
+  modelos, migraciones,      JSON, validación,          formularios... y al
+  Eloquent, validación       códigos HTTP, Insomnia     final: ¡consumir TU API!
+```
+
+**¿Por qué en este orden?** Cada etapa se apoya en la anterior. Cuando llegues a conectar la app con la API, vas a entender **los dos lados**: si la app muestra un error `422`, sabrás que viene del `$request->validate()` que tú escribiste.
+
+### ¿Qué necesito saber antes de cada parte?
+
+| Módulos | Necesitas saber | Si no lo sabes aún... |
+|---|---|---|
+| `01` a `10` (Flet) | Python básico y POO | Estos módulos **no dependen de Laravel**: puedes avanzarlos en paralelo con las etapas 1 y 2 |
+| `12_consumo_api` | Etapa 2: qué es una API, verbos HTTP, JSON, probar en Insomnia | Trae `servidor_prueba.py` para practicar sin Laravel, pero lo ideal es usar **tu** API |
+| `13_autenticacion_api` | Etapa 1 y 2 completas: crear rutas, controladores y validaciones en Laravel | Aquí **tú construyes la API**: sin Laravel no podrás avanzar |
+
+### Un mismo proyecto que crece
+
+La idea es no empezar de cero en cada etapa: es **el mismo sistema**, que va creciendo.
+
+1. En Laravel construyes una **tienda** con productos (web).
+2. Le agregas una **API** para que otras aplicaciones puedan usar esos datos.
+3. Construyes la **app móvil** que la consume (módulo 12) y le agregas usuarios con inicio de sesión (módulo 13).
+
+> 🎯 **Proyecto final:** elige tu propio tema (biblioteca, gimnasio, citas médicas, inventario...) y construye las tres capas: **web en Laravel + API + app móvil en Flet**.
+
+---
+
 ## ¿Qué voy a aprender?
 
 Sigue las carpetas en orden. Cada una tiene su propio README con explicaciones y ejercicios listos para correr.
